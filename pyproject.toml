@@ -2,11 +2,11 @@
 name = "setuptools-gitmodules"  # Required
 version = "0.0.1"  # Required
 description = "Dependency management via git submodules"
-readme = "README.md" # Optional
+readme = "README" # Optional
 requires-python = ">=3.8"
 license = {file = "LICENSE.txt"}
 authors = [
-  { name = "Enan Ajmain", email = "enan@movandi.com" }
+  { name = "Enan Ajmain", email = "3nan.ajmain@gmail.com" }
 ]
 
 # Classifiers help users find your project by categorizing it.
@@ -24,8 +24,6 @@ classifiers = [  # Optional
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.4",
-  "Programming Language :: Python :: 3.5",
   "Programming Language :: Python :: 3.6",
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",

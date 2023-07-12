@@ -1,0 +1,25 @@
+setuptools-gitmodules
+=====================
+
+This is a setuptools extension that manages install dependencies through git
+submodules.  The idea is to have first-party dependencies as git submodules and
+to use them as editable installation for developers, and to list them as install
+dependencies in the format "pkgname==x.y.z" when building a binary distribution.
+
+Limitation
+----------
+
+- Requires first-party dependencies to be uploaded to pypi
+  This was the reason this setuptools extension was built in the first place.
+  If you can ship the deps bundled with the top-level package, then you don't
+  need this extension.
+
+Development Status
+------------------
+
+TODO
+----
+
+- [x] Find the setuptools entrypoint
+- [x] Use the entrypoint to dynamically add to install dependencies
+- [ ] Parse .gitmodules file and generate install dependencies string
