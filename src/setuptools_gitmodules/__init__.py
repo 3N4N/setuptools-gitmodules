@@ -8,15 +8,13 @@ def get_git_submodules():
     return [ 'hardcoded-dep1' ]
 
 def install_requires_setter(self, values):
-    pp = toml.load('pyproject.toml')
-    deps = pp.get('project')['dependencies']
-    deps += get_git_submodules()
+    deps = get_git_submodules() + values
     print(f"Install dependencies: {deps}")
     setattr(self,'install_requires', deps)
 
 def finalize_dist(dist):
-    # 'deps' replaced with that from pyproject.toml by setuptools
-    # Unless we bind this attribute 'set_install_requires' to a function
-    # And the function needs to be bound to dist object, otherwise it can't
-    # update the dist object.  I don't know if this is the best way.  But it works.
+    # We can set install_requires of dist here, but it's replaced with
+    # dependencies from pyproject.toml by setuptools.  Unless we bind this
+    # attribute 'set_install_requires' to a function.  And the function needs
+    # to be bound to dist object, otherwise it can't update the dist object.
     setattr(dist.metadata,'set_install_requires', MethodType(install_requires_setter, dist))
